@@ -1,0 +1,30 @@
+.Top_panel{
+  display: flex;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana,system-ui;
+  justify-content: space-between;
+  background-color: rgb(53, 154, 198);
+  
+}
+
+a{
+  text-decoration: none; 
+  width: 100%;
+}
+li {
+    /* margin-right: 5%; */
+    width: 75px;      
+}
+.signInOut {
+  justify-content: flex-end;
+  /* width: 20%; */
+  display: flex;
+  /* margin-left: 10em; */
+  text-align: right;
+  text-decoration-line: none;
+  text-decoration: none;
+  height: 50px;
+  list-style-type: none;
+  text-decoration-line: none;
+ 
+   }
+
