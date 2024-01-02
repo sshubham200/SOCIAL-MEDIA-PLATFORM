@@ -2,11 +2,12 @@
         <header class="Top_panel">
            <h1>A Random Website</h1> 
 
-            <ul class = signInOut>
+            <ul class = profile>
                 <% if(locals.user){ %>
+                    <img src="profile-image.jpg" alt="Profile Image">
                     <li><%=user.name%></li> 
                     <li>
-                    <a href = "/users/sign-out">Sign Out</a>
+                    <a href = "/users/sign-out" id="sign-out">Sign Out</a>
                     </li>
                 <%} else{%>
                     <li>
