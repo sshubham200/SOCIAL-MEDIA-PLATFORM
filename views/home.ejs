@@ -1,3 +1,10 @@
 
-        <h1>Codeial / <%= title %></h1>
+        <!-- <h1>Codeial / <%= title %></h1> -->
+
+        <% if(!locals.user){ %>
+
+        <%- include ('user_sign_in'); %>
+            
+            <%}%>
+
      
