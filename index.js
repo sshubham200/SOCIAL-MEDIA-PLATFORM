@@ -6,9 +6,10 @@ const expressLayout = require('express-ejs-layouts');
 const { urlencoded } = require('express');
 const session = require('express-session');
 const passport = require('passport');
+const googleStrategy = require('./config/passport-google-Oauth-strategy');
 const passportLocal = require('./config/local-strategy');
 const MongoStore = require('connect-mongo');
-const sassMiddleWare = require('node-sass-middleware')
+// const sassMiddleWare = require('node-sass-middleware')
 
 
 const db = require('./config/mongoose')
@@ -22,14 +23,14 @@ app.use(express.static('./assets'));
 
 app.use(expressLayout);
 
-app.use(sassMiddleWare({
-  /* Options */
-  src: './assets/sass',
-  dest: './assets/css',
-  debug: true,
-  outputStyle: 'extended',
-  prefix:  '/css'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
-}));
+// app.use(sassMiddleWare({
+//   /* Options */
+//   src: './assets/sass',
+//   dest: './assets/css',
+//   debug: true,
+//   outputStyle: 'extended',
+//   prefix:  '/css'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+// }));
 
 
 app.use(session({
@@ -55,6 +56,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+
+// passport.use(googleStrategy);
+app.use(googleStrategy.initialize());
 
 app.use('/',require('./routes'));
 

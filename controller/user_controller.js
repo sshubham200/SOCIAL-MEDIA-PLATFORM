@@ -93,15 +93,24 @@ module.exports.createSession = function(req,res){
 
 module.exports.signOut =function(req,res){
     
-    User.findById(req.cookies.user_id,function(err,user){
-        if(err){console.log(err); return ;
-        }
-        if(user){
-            res.cookie('user_id','');
-            req.cookies.user_id = "";
-            return res.redirect('../users/sign-in');
-            }
-        })
+    const userId = req.cookies.user_id;
+
+User.findById(userId)
+  .then(user => {
+    if (user) {
+      res.clearCookie('user_id');  // Use res.clearCookie() to remove the cookie
+      return res.redirect('../users/sign-in');
+    } else {
+      // Handle the case where the user is not found
+      return res.redirect('../users/sign-up');
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    //TODO Handle the error appropriately, e.g., render an error page
+    res.status(500).render('error', { error: 'Internal Server Error' });
+  });
+
     
 }
 

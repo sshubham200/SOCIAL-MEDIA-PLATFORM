@@ -27,13 +27,20 @@ passport.serializeUser(function(user, done) {
   });
   
   passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        if(err){
-            console.log('Error in finding user');
-            return done(err);
-        }
-      return done(null, user);
-    });
+
+User.findById(id)
+  .then(user => {
+    if (!user) {
+      console.log('User not found');
+      return done(null, false); // Indicate that the user was not found
+    }
+    return done(null, user);
+  })
+  .catch(err => {
+    console.error('Error in finding user:', err);
+    return done(err);
+  });
+
   });
 
   passport.checkAuthentication = function(req,res,next){
