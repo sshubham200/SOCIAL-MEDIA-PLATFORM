@@ -7,4 +7,48 @@
             
             <%}%>
 
+            <% if(locals.user){ %>
+
+            <section id ="users-feed">
+                <div class="post-container">
+                    <h1>Posts</h1>
+                <!-- <div> -->
+                <% if (posts.length > 0) { %>
+                <% posts.forEach(post => { %>
+                    <div class="post">
+                        <!-- <div> -->
+                        <h3 class="post-title"><%= post.title %></h3>
+                        <p class="post-content"><%= post.content %></p>
+                        <p class="post-author">Author: <%= post.user.name %></p>
+                    <!-- </div> -->
+                        <% if((locals.user) && (locals.user.id == post.user.id)){ %>
+                            <a class="delete-post" href="/posts/destroy/<%= post.id %>">X
+                                    <!-- <i class="fa fa-window-close"></i> -->
+                                    </a>
+                            <%}%>
+                        <!-- Add more post details as needed -->
+                    </div>
+                <% }); %>
+
+                <% } else { %>
+                    <p class="no-posts-message">No posts available.</p>
+                <% } %>
+
+                </div>
+                
+                <div class="post-form">
+                        <h3>Create a Post</h3>
+
+                        <form action="posts/create" class="postForm" id ="new-post" method ="post">
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" name="title" >
+                        
+                            <label for="content">Content:</label>
+                            <textarea id="content" name="content" rows="4" placeholder="Start typing..." required></textarea>
+                        
+                            <button type="submit">Submit Post</button>
+                        </form>
+                </div>
+            </section>
+        <%}%>
      

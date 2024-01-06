@@ -5,6 +5,7 @@ const port = 8000;
 const expressLayout = require('express-ejs-layouts');
 const { urlencoded } = require('express');
 const session = require('express-session');
+const flash = require('express-flash');
 const passport = require('passport');
 const googleStrategy = require('./config/passport-google-Oauth-strategy');
 const passportLocal = require('./config/local-strategy');
@@ -61,6 +62,8 @@ app.use(passport.setAuthenticatedUser);
 app.use(googleStrategy.initialize());
 
 app.use('/',require('./routes'));
+
+app.use(flash());
 
 app.set('view engine','ejs');
 app.set('views','./views');
