@@ -27,6 +27,37 @@
                                     </a>
                             <%}%>
                         <!-- Add more post details as needed -->
+
+                        <div class="post-comment">
+                            <% if(locals.user){ %>
+                                <form action="comments/create" id ="new-comment" method ="post" class="comment-form">
+                                        <textarea name="content" id="commentContent" cols="30" rows="1"placeholder="Comment..." required></textarea>
+                                        <input type = "hidden" name =post value="<%=post._id%>">
+                                        <button type="submit" class="comment-button">Post Comment</button>
+                                    </form>
+                                <%}%>
+                                <div class="comments-section" >
+                                        <ul class="comment">
+                                                <% for(comment of post.comments){%>
+                                                    <p class="comment-content">
+                                                        <%= comment.content %>
+                                                        <br>
+                                                        <small class="comment-author">
+                                                                <%= comment.user.name %>
+                                                        </small>
+                                                        <% if((locals.user) && ((locals.user.id == comment.user.id) || (locals.user.id == post.user.id))){ %>
+                                                                <a href="/comments/destroy/<%= comment.id %>">X
+                                                                        <!-- <i class="fa fa-window-close"></i> -->
+                                                                        </a>
+                                                                <%}%>
+                                                    </p>
+                                                        
+                                                        <%}%>
+                                        </ul> 
+                                </div>
+                    </div>
+
+
                     </div>
                 <% }); %>
 

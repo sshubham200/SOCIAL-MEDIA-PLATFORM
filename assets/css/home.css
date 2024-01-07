@@ -82,8 +82,66 @@
     border-radius: 4px;
     cursor: pointer;
 }
-}
+
 
 .delete-post:hover {
     background-color: #ff3333;
 }
+
+/* Comment Form Styles */
+.comment-form {
+    margin-top: 15px;
+}
+
+.comment-form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.comment-form button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: #45a049;
+}
+
+/* Comments Section Styles */
+.comments-section {
+    margin-top: 20px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.comment-content {
+    font-size: 16px;
+}
+
+.comment-author {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.no-comments-message {
+    font-size: 14px;
+    color: #777;
+}
+
