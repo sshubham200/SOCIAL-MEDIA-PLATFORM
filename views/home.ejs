@@ -20,6 +20,10 @@
                         <h3 class="post-title"><%= post.title %></h3>
                         <p class="post-content"><%= post.content %></p>
                         <p class="post-author">Author: <%= post.user.name %></p>
+                        <form action="/likes/toggle/<%= post.id %>/Post" method="post">
+                            <button type="submit">Like</button>
+                          </form>
+                        <p> <%= post.likes.length %></p>
                     <!-- </div> -->
                         <% if((locals.user) && (locals.user.id == post.user.id)){ %>
                             <a class="delete-post" href="/posts/destroy/<%= post.id %>">X
@@ -38,6 +42,7 @@
                                 <%}%>
                                 <div class="comments-section" >
                                         <ul class="comment">
+                                            <p class="comments-count">Comments <%= post.comments.length  %></p>
                                                 <% for(comment of post.comments){%>
                                                     <p class="comment-content">
                                                         <%= comment.content %>

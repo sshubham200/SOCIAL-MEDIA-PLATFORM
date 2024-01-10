@@ -5,7 +5,9 @@
             <ul class = profile>
                 <% if(locals.user){ %>
                     <img src="profile-image.jpg" alt="Profile Image">
-                    <li><%=user.name%></li> 
+                    <li>
+                        <a href = "/users/profile"><%=user.name%></a> 
+                    </li>
                     <li>
                     <a href = "/users/sign-out" id="sign-out">Sign Out</a>
                     </li>

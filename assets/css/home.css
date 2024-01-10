@@ -34,7 +34,7 @@
  .post-container {
     width: 90%; /* Set a relative width (80% of the parent element's width) */
     margin: 20px auto;
-    height: 400px;
+    height: 600px;
     overflow-y: auto;
 }
 
@@ -123,6 +123,13 @@
     margin-top: 20px;
 }
 
+.comments-count {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
 .comment {
     background-color: #f9f9f9;
     padding: 10px;
@@ -143,5 +150,27 @@
 .no-comments-message {
     font-size: 14px;
     color: #777;
+}
+
+/* style like button */
+
+.like-container {
+    text-align: center;
+}
+
+.like-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.like-count {
+    margin-top: 10px;
+    font-size: 18px;
 }
 

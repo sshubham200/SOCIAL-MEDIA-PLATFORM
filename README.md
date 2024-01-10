@@ -16,8 +16,8 @@ To run this project, you need to have Node.js and npm (Node Package Manager) ins
 
 1. Clone the repository:
 
-   git clone https://github.com/yourusername/yourproject.git
-   cd yourproject
+   git clone https://github.com/sshubham200/SOCIAL-MEDIA-PLATFORM
+   cd SOCIAL-MEDIA-PLATFORM
 
 2. Install dependencies:
 

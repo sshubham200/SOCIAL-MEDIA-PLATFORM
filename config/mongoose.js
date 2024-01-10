@@ -1,12 +1,14 @@
-const mongodb = require('mongodb');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/codeial_db');
+mongoose.connect('mongodb://localhost/codeial_db', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 const db = mongoose.connection;
 
-db.on('error',console.error.bind(console,'error in connecting with db'));
+db.on('error', console.error.bind(console, 'Error in connecting with db'));
 
-db.once('open',function(){
-    console.log('Succesfully connected to the server')
+db.once('open', function() {
+  console.log('Successfully connected to the server');
 });
