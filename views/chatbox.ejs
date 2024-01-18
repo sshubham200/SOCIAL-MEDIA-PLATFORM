@@ -1,0 +1,21 @@
+<% if(locals.user){ %>
+
+<button id="toggleChatBtn" class="chat-toggle-btn">Chat</button>
+
+<!-- Chat container -->
+<div id="chatContainer" class="chat-container hidden">
+    <!-- <div class="chat-header"> -->
+    <!-- <h2>Chat Box</h2> -->
+    <!-- </div> -->
+    <div class="chat-messages" id="chatMessages">
+    <!-- Display chat messages here -->
+    </div>
+    <div class="chat-input">
+    <input type="text" id="messageInput" placeholder="Type a message...">
+    <button id="sendMessageBtn">Send</button>
+    </div>
+</div>
+
+<!-- <script src="/js/chat_box.js"></script> -->
+
+<%}%>

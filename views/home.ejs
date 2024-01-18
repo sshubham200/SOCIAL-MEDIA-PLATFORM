@@ -14,16 +14,16 @@
                     <h1>Posts</h1>
                 <!-- <div> -->
                 <% if (posts.length > 0) { %>
-                <% posts.forEach(post => { %>
+                <% posts.reverse().forEach(post => { %>
                     <div class="post">
                         <!-- <div> -->
                         <h3 class="post-title"><%= post.title %></h3>
                         <p class="post-content"><%= post.content %></p>
                         <p class="post-author">Author: <%= post.user.name %></p>
                         <form action="/likes/toggle/<%= post.id %>/Post" method="post">
-                            <button type="submit">Like</button>
+                            <button type="submit">Likes <%= post.likes.length %></button>
                           </form>
-                        <p> <%= post.likes.length %></p>
+                        <!-- <p> <%= post.likes.length %></p> -->
                     <!-- </div> -->
                         <% if((locals.user) && (locals.user.id == post.user.id)){ %>
                             <a class="delete-post" href="/posts/destroy/<%= post.id %>">X
@@ -71,8 +71,14 @@
                 <% } %>
 
                 </div>
+
+                <button class="add-post-btn" onclick="openModal()">
+                    <i class="fas fa-plus"></i>
+                </button>
                 
-                <div class="post-form">
+                
+
+                <!-- <div class="post-form" id="post-create">
                         <h3>Create a Post</h3>
 
                         <form action="posts/create" class="postForm" id ="new-post" method ="post">
@@ -84,7 +90,13 @@
                         
                             <button type="submit">Submit Post</button>
                         </form>
-                </div>
+                </div> -->
             </section>
+
+        <script src="/js/chat_box.js"></script>
+
+        <%- include ('post-form'); %>
+        <%- include ('chatbox'); %>
+
         <%}%>
      
